@@ -1,0 +1,330 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+/* Ensure mobile logo is hidden by default */
+.germanna-logo-mobile {
+    display: none;
+}
+
+
+
+
+/* Media query for screens wider than 768px */
+@media screen and (min-width: 769px) {
+    .germanna-logo-mobile {
+        display: none;
+    }
+    .germanna-logo-desktop {
+        display: inline;
+    }
+}
+
+/* Media query for screens 768px and narrower */
+@media screen and (max-width: 768px) {
+    .germanna-logo-desktop {
+        display: none;
+    }
+    .germanna-logo-mobile {
+        display: inline;
+    }
+}
+.app-header ,.footer {
+  background: linear-gradient(90deg, #a20b35 11.05%, #002b49 98.59%);
+  color: white;
+  padding: 10px 20px;
+  width: auto; /* Full width */
+  height: auto;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.app-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+:root  {
+  --color: linear-gradient(90deg, #a20b35 11.05%, #002b49 98.59%);;
+  --transition-time: 0.5s;
+}
+
+* {
+  box-sizing: border-box;
+}
+        
+a {
+  color: inherit;
+}
+
+.cards-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 4rem;
+  padding: 4rem;
+  margin: 0 auto;
+  width: max-content;
+}
+
+.card {
+  font-family: 'Heebo';
+  --bg-filter-opacity: 0.3;
+  background-image: linear-gradient(rgba(0,0,0,var(--bg-filter-opacity)),rgba(0,0,0,var(--bg-filter-opacity))), var(--bg-img);
+  height: 15em;
+  width: 15em;
+  font-size: 1.5em;
+  color: white;
+  border-radius: 1em;
+  padding: 1em;
+  /*margin: 2em;*/
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 5em -1em black;
+  transition: all, var(--transition-time);
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #000000;
+  text-decoration: none;
+}
+
+.card:hover {
+  transform: rotate(0);
+}
+
+.card h1 {
+  margin: 0;
+  font-size: 1.5em;
+  line-height: 1.2em;
+  color: #ffffff;
+}
+
+.card p {
+  font-size: 0.75em;
+  font-family: 'Open Sans';
+  margin-top: 0.5em;
+  line-height: 2em;
+}
+
+.card .tags {
+  display: flex;
+}
+
+.card .tags .tag {
+  font-size: 0.75em;
+  background: rgba(255,255,255,0.5);
+  border-radius: 0.3rem;
+  padding: 0 0.5em;
+  margin-right: 0.5em;
+  line-height: 1.5em;
+  transition: all, var(--transition-time);
+}
+
+.card:hover .tags .tag {
+  background: var(--color);
+  color: white;
+}
+
+
+.card .date {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.75em;
+  padding: 1em;
+  line-height: 1em;
+  opacity: .8;
+}
+
+.card:before, .card:after {
+  content: '';
+  transform: scale(0);
+  transform-origin: top left;
+  border-radius: 50%;
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  z-index: -5;
+  transition: all, var(--transition-time);
+  transition-timing-function: ease-in-out;
+}
+
+
+.card:before {
+  background:  linear-gradient(90deg, #e17f7f 11.05%, #769eba 98.59%);
+  width: 250%;
+  height: 250%;
+  
+
+}
+
+.card:after {
+  background: linear-gradient(90deg, #e17f7f 31.05%, #769eba 78.59%);
+  width: 200%;
+  height: 200%;
+}
+
+.card:hover {
+  color: var(--color);
+}
+
+.card:hover:before, .card:hover:after {
+  transform: scale(1);
+}
+
+.card-grid-space .num {
+  font-size: 3em;
+  margin-bottom: 1.2rem;
+  margin-left: 1rem;
+}
+
+.info {
+  font-size: 1.2em;
+  display: flex;
+  padding: 1em 3em;
+  height: 3em;
+}
+
+.info img {
+  height: 3em;
+  margin-right: 0.5em;
+}
+
+.info h1 {
+  font-size: 1em;
+  font-weight: normal;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 1285px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .info {
+    justify-content: center;
+  }
+  .card-grid-space .num {
+    margin-left : 0;
+
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cards-wrapper {
+    padding: 4rem 2rem;
+  }
+  .card {
+    max-width: calc(100vw - 4rem);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .info {
+    display: block;
+    text-align: center;
+  }
+  .info h1 {
+    margin: 0;
+  }
+}
+
+
+
+.footer {
+            background: linear-gradient(90deg, #a20b35 11.05%, #002b49 98.59%);
+            color: white;
+            padding: 10px 20px;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+           
+        }
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Title (pulls from metadata.json) -->
+    <title>G-One</title>
+
+    <!-- favicon -->
+    <link rel="SHORTCUT ICON"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAcCAYAAACQ0cTtAAAAvUlEQVR4AWNwL/ChGx4Blo1atlrWwgSI3aG0IOWWYVqgAsS7gPg/OqbMMkyLEuCGY+JZVLMMFFxohi+HiqlQPRjRLDKhfgJBWFSIZFEhSIyWll1GTQSUY2KCcBc9LevDIrcc5Agc+DK1LXuDkMfEVA1GWNJHxzA9NEwgmHmS0qSfAJcj7Ljl1MjUKnjUzUJTR3lxBTXUBConCJW/jJyYaFYQozuEWlWMIK4qBuozE1pVniqwynO0DTJqGVUxAHM0W1WGshN4AAAAAElFTkSuQmCC">
+
+
+    <!-- Font Awesome — for the social media icons and hamburger menu icon -->
+    <script src="https://kit.fontawesome.com/ea52966d59.js" crossorigin="anonymous"></script>
+
+    <!-- SOCIAL CARDS — Make sure to update!! -->
+ 
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="G-One" /> <!-- TODO: headline -->
+    <meta property="og:description" content="Student Engagement Website" /> <!-- TODO: abstract -->
+    <meta property="og:site_name" content="G-One">
+    <meta property="og:image"
+        content="" />
+</head>
+
+<body>
+    <!-- Search Bar -->
+
+    <header class="app-header" style="display: flex; align-items: center;">
+        <img 
+            src="https://germanna.edu/themes/custom/germanna/assets/images/germanna-white-mobile.svg" 
+            alt="germanna Logo" 
+            class="germanna-logo germanna-logo-mobile" 
+            style="height: 30px; width: 30px; margin-right: 10px;" 
+        />
+        <img 
+            src="https://germanna.edu/sites/default/files/2023-12/germanna-logogermana_logo.png" 
+            alt="germanna Logo" 
+            class="germanna-logo germanna-logo-desktop" 
+            style="height: 30px; width: 250px; margin-right: 10px;" 
+        />
+        <div class="app-title">Germanna Interview Task</div>
+    </header>
+
+ 
+
+    <!-- Main Article -->
+    <main style="text-align: center; padding: 20px;">
+        <img 
+            src="logo.webp" 
+            alt="App Preview" 
+            style="max-width: 40%; border-radius: 10px; margin-bottom: 20px;"
+        />
+        <h1>Welcome to the G-One Student Engagement Platform</h1>
+        <p>
+            Our app is designed to help students stay connected, engaged, and informed. 
+            Explore various features such as event tracking, resource sharing, and communication tools to enhance your academic journey.
+        </p>
+        <button 
+           
+            style="padding: 10px 20px; margin-top: 20px; font-size: 16px; border: none; border-radius: 5px; background-color: #a20b35; color: white; cursor: pointer;">
+        <a href="Menu.html">  Start</a>  
+        </button>
+    </main>
+
+    <!-- JavaScript -->
+
+
+<footer class="footer">
+    <p>&copy; <span id="year"></span>G-One Student Engagement Platform</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Germanna Feedback Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .main-content {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: left;
+        }
+        .app-header, .footer {
+            background: linear-gradient(90deg, #a20b35 11.05%, #002b49 98.59%);
+            color: white;
+            padding: 10px 20px;
+            width: 99%;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .app-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+            .app-title {
+                font-size: 18px;
+            }
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        input, textarea {
+            width: 90%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            align-items: center;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .download-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .download-button:hover {
+            background-color: #218838;
+        }
+
+
+        .main-content {
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Ensure content is centered vertically */
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+}
+button, .download-button {
+    display: block; /* Makes the buttons block-level elements */
+    margin: 20px auto; /* Centers the buttons horizontally */
+    text-align: center; /* Ensures text is centered */
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    align-items: center;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.download-button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.download-button:hover {
+    background-color: #218838;
+}
+
+        
+        
+        
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="app-header">
+       <a href="index.html"> <img src="https://germanna.edu/sites/default/files/2023-12/germanna-logogermana_logo.png" alt="Germanna Logo" class="germanna-logo germanna-logo-desktop" style="height: 30px; width: 250px; margin-right: 10px;">
+       </a>
+        <div class="app-title">Germanna Interview Task</div>
+    </header>
+    
+    <div class="main-content">
+        <h2>Germanna Feedback Form</h2>
+        <div class="container">
+            <h1>Your Feedback Matters</h1>
+            <p>Share your thoughts and suggestions to help us improve!</p>
+            <form id="feedback-form" method="post" action="https://formspree.io/f/mdornwyv" >
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="feedback">Feedback:</label>
+                    <textarea id="feedback" name="feedback" rows="4" placeholder="Your Feedback" required></textarea>
+                </div>
+                <button type="submit" value="SEND ME" style="    display: flex;
+    justify-content: center;">Submit Feedback</button>
+            </form>
+            <!-- Download PDF Button -->
+            <button class="download-button" id="download-btn">Download Feedback Form as PDF</button>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2024 Germanna College - All Rights Reserved</p>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        document.getElementById('download-btn').addEventListener('click', function () {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const feedback = document.getElementById('feedback').value;
+            doc.text('Feedback Form', 20, 20);
+            doc.text('Name: ' + name, 20, 30);
+            doc.text('Email: ' + email, 20, 40);
+            doc.text('Feedback: ' + feedback, 20, 50);
+            doc.save('feedback_form.pdf');
+        });
+    </script>
+</body>
+</html>

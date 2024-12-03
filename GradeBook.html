@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        .app-header, .footer {
+            background: linear-gradient(90deg, #a20b35 11.05%, #002b49 98.59%);
+            color: white;
+            padding: 10px 20px;
+            width: 100%;
+            height: auto;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .app-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .gradbook-content {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .chart-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .chart-box {
+            width: 600px;
+            height: 300px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-title {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+        }
+        .grade-report {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        .grade-report th, .grade-report td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .grade-report th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradBook</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="app-header">
+        <div class="app-title">GradBook</div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="gradbook-content">
+        <h1>Welcome to the GradBook</h1>
+        <p>Track your academic progress with insights into your grades and performance.</p>
+
+
+
+
+
+        <div class="chart-container">
+            <!-- Bar Chart -->
+            <div class="chart-box">
+                <div class="chart-title">Grades by Subject</div>
+                <canvas id="barChart"></canvas>
+            </div>
+
+
+
+        <table class="grade-report">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Grade (Out of 4)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Math</td>
+                    <td>3.8</td>
+                </tr>
+                <tr>
+                    <td>Science</td>
+                    <td>3.6</td>
+                </tr>
+                <tr>
+                    <td>History</td>
+                    <td>3.9</td>
+                </tr>
+                <tr>
+                    <td>English</td>
+                    <td>3.7</td>
+                </tr>
+                <tr>
+                    <td>Art</td>
+                    <td>4.0</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; <span id="year"></span> GradBook - Your Academic Dashboard</p>
+    </footer>
+
+    <script>
+        // Set the current year in the footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Bar Chart Data
+        const barCtx = document.getElementById('barChart').getContext('2d');
+        new Chart(barCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Math', 'Science', 'History', 'English', 'Art'],
+                datasets: [{
+                    label: 'Grades',
+                    data: [85, 92, 78, 88, 95],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    title: { display: true, text: 'Grades by Subject' }
+                }
+            }
+        });
+
+
+        
+
+    </script>
+</body>
+
+</html>

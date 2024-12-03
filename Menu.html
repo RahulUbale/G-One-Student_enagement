@@ -1,0 +1,525 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+/* Ensure mobile logo is hidden by default */
+.germanna-logo-mobile {
+    display: none;
+}
+
+
+
+
+/* Media query for screens wider than 768px */
+@media screen and (min-width: 769px) {
+    .germanna-logo-mobile {
+        display: none;
+    }
+    .germanna-logo-desktop {
+        display: inline;
+    }
+}
+
+/* Media query for screens 768px and narrower */
+@media screen and (max-width: 768px) {
+    .germanna-logo-desktop {
+        display: none;
+    }
+    .germanna-logo-mobile {
+        display: inline;
+    }
+}
+.app-header ,.footer {
+  background: linear-gradient(90deg, #a20b35 11.05%, #002b49 98.59%);
+  color: white;
+  padding: 10px 20px;
+  width: auto; /* Full width */
+  height: auto;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.app-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+:root  {
+  --color: linear-gradient(90deg, #a20b35 11.05%, #002b49 98.59%);;
+  --transition-time: 0.5s;
+}
+
+* {
+  box-sizing: border-box;
+}
+        
+a {
+  color: inherit;
+}
+
+.cards-wrapper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 4rem;
+  padding: 4rem;
+  margin: 0 auto;
+  width: max-content;
+}
+
+.card {
+  font-family: 'Heebo';
+  --bg-filter-opacity: 0.3;
+  background-image: linear-gradient(rgba(0,0,0,var(--bg-filter-opacity)),rgba(0,0,0,var(--bg-filter-opacity))), var(--bg-img);
+  height: 15em;
+  width: 15em;
+  font-size: 1.5em;
+  color: white;
+  border-radius: 1em;
+  padding: 1em;
+  /*margin: 2em;*/
+  display: flex;
+  align-items: flex-end;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 5em -1em black;
+  transition: all, var(--transition-time);
+  position: relative;
+  overflow: hidden;
+  border: 3px solid #000000;
+  text-decoration: none;
+}
+
+.card:hover {
+  transform: rotate(0);
+}
+
+.card h1 {
+  margin: 0;
+  font-size: 1.5em;
+  line-height: 1.2em;
+  color: #ffffff;
+}
+
+.card p {
+  font-size: 0.75em;
+  font-family: 'Open Sans';
+  margin-top: 0.5em;
+  line-height: 2em;
+}
+
+.card .tags {
+  display: flex;
+}
+
+.card .tags .tag {
+  font-size: 0.75em;
+  background: rgba(255,255,255,0.5);
+  border-radius: 0.3rem;
+  padding: 0 0.5em;
+  margin-right: 0.5em;
+  line-height: 1.5em;
+  transition: all, var(--transition-time);
+}
+
+.card:hover .tags .tag {
+  background: var(--color);
+  color: white;
+}
+
+
+.card .date {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0.75em;
+  padding: 1em;
+  line-height: 1em;
+  opacity: .8;
+}
+
+.card:before, .card:after {
+  content: '';
+  transform: scale(0);
+  transform-origin: top left;
+  border-radius: 50%;
+  position: absolute;
+  left: -50%;
+  top: -50%;
+  z-index: -5;
+  transition: all, var(--transition-time);
+  transition-timing-function: ease-in-out;
+}
+
+
+.card:before {
+  background:  linear-gradient(90deg, #e17f7f 11.05%, #769eba 98.59%);
+  width: 250%;
+  height: 250%;
+  
+
+}
+
+.card:after {
+  background: linear-gradient(90deg, #e17f7f 31.05%, #769eba 78.59%);
+  width: 200%;
+  height: 200%;
+}
+
+.card:hover {
+  color: var(--color);
+}
+
+.card:hover:before, .card:hover:after {
+  transform: scale(1);
+}
+
+.card-grid-space .num {
+  font-size: 3em;
+  margin-bottom: 1.2rem;
+  margin-left: 1rem;
+}
+
+.info {
+  font-size: 1.2em;
+  display: flex;
+  padding: 1em 3em;
+  height: 3em;
+}
+
+.info img {
+  height: 3em;
+  margin-right: 0.5em;
+}
+
+.info h1 {
+  font-size: 1em;
+  font-weight: normal;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 1285px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .info {
+    justify-content: center;
+  }
+  .card-grid-space .num {
+    margin-left : 0;
+
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .cards-wrapper {
+    padding: 4rem 2rem;
+  }
+  .card {
+    max-width: calc(100vw - 4rem);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .info {
+    display: block;
+    text-align: center;
+  }
+  .info h1 {
+    margin: 0;
+  }
+}
+
+
+
+.footer {
+            background: linear-gradient(90deg, #a20b35 11.05%, #002b49 98.59%);
+            color: white;
+            padding: 10px 20px;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+           
+        }
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Title (pulls from metadata.json) -->
+    <title>G-One</title>
+
+    <!-- favicon -->
+    <link rel="SHORTCUT ICON"
+        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAcCAYAAACQ0cTtAAAAvUlEQVR4AWNwL/ChGx4Blo1atlrWwgSI3aG0IOWWYVqgAsS7gPg/OqbMMkyLEuCGY+JZVLMMFFxohi+HiqlQPRjRLDKhfgJBWFSIZFEhSIyWll1GTQSUY2KCcBc9LevDIrcc5Agc+DK1LXuDkMfEVA1GWNJHxzA9NEwgmHmS0qSfAJcj7Ljl1MjUKnjUzUJTR3lxBTXUBConCJW/jJyYaFYQozuEWlWMIK4qBuozE1pVniqwynO0DTJqGVUxAHM0W1WGshN4AAAAAElFTkSuQmCC">
+
+
+    <!-- Font Awesome — for the social media icons and hamburger menu icon -->
+    <script src="https://kit.fontawesome.com/ea52966d59.js" crossorigin="anonymous"></script>
+
+    <!-- SOCIAL CARDS — Make sure to update!! -->
+ 
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="G-One" /> <!-- TODO: headline -->
+    <meta property="og:description" content="Student Engagement Website" /> <!-- TODO: abstract -->
+    <meta property="og:site_name" content="G-One">
+    <meta property="og:image"
+        content="" />
+</head>
+
+<body>
+    <!-- Search Bar -->
+
+    <header class="app-header" style="display: flex; align-items: center;">
+      <a href = "index.html"> <img 
+            src="https://germanna.edu/themes/custom/germanna/assets/images/germanna-white-mobile.svg" 
+            alt="germanna Logo" 
+            class="germanna-logo germanna-logo-mobile" 
+            style="height: 30px; width: 30px; margin-right: 10px;" 
+        />
+        <img 
+            src="https://germanna.edu/sites/default/files/2023-12/germanna-logogermana_logo.png" 
+            alt="germanna Logo" 
+            class="germanna-logo germanna-logo-desktop" 
+            style="height: 30px; width: 250px; margin-right: 10px;" 
+        /></a> 
+        <div class="app-title">Germanna Interview Task</div>
+    </header>
+
+    <div style="display: flex; align-items: center;" >
+        <input 
+            type="text" 
+            id="search-bar" 
+            placeholder="Search by title or tag..." 
+            onkeyup="filterCards()" 
+            style="margin: 20px; padding: 10px; width: 100%; border-radius: 5px; border: 1px solid #ccc; ;"
+        />
+    </div>
+
+    <!-- Main Article -->
+    <main>
+        <p class="caption header-caption"></p>
+        <article>
+            <div class="story">
+
+
+                <!-- Cards Section -->
+                <section class="cards-wrapper" id="cards-container">
+                    <div class="card-grid-space">
+                        <div class="num">To Do List</div>
+                        <a class="card" href="https://rahulubale.github.io/Student_enagement_To_Do_List_Live/" 
+                        target="_blank" 
+                        style="--bg-img: url(https://www.wikihow.com/images/thumb/3/38/Make-a-To-Do-List-Step-5-Version-3.jpg/v4-460px-Make-a-To-Do-List-Step-5-Version-3.jpg)">
+                            <div>
+                            <p>The To-Do List feature allows users to manage and track their tasks and deadlines efficiently in a simple, organized way.</p>
+                                
+                                <div class="tags">
+                                    <div class="tag">To Do List</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="card-grid-space">
+                        <div class="num">Downloads</div>
+                        <a class="card" href="https://germanna.edu/academic-center-excellence/technology-resources-students" target="_blank" style="--bg-img: url(https://static.thenounproject.com/png/1448998-200.png)">
+                            <div>
+                                
+                                <p>The Download section allows users to access and download software at no charge, providing free access to essential tools for their needs.                                </p>
+                               
+                                <div class="tags">
+                                    <div class="tag">Services</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="card-grid-space">
+                        <div class="num">Zoom</div>
+                        <a class="card" href="https://zoom.us/signin#/login" target="_blank" 
+                        style="--bg-img: url(data:image/webp;base64,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)">
+                            <div>
+                               
+                                <p>Communicate with HD-quality video and audio for classes, web conferences, and collaboration.</p>
+                                <div class="tags">
+                                    <div class="tag">Services</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    
+                    <div class="card-grid-space">
+                        <div class="num">E Center</div>
+                        <a class="card" href="https://germanna.edu/student-experience/paying-school/paying-your-tuition#:~:text=Payment%20or%20Payment%20Plan%20Online%20(Nelnet)&text=Click%20on%20%E2%80%9CVCCS%20SIS%2C%20Student,Apply%20for%20a%20Payment%20Plan.%E2%80%9D" target="_blank" style="--bg-img: url(https://sd-prd-images.s3.amazonaws.com/prd/test-uisapp2/20150702T051510389910_1427116561462_EmployeeCenter.png)">
+                            <div>
+                                
+                                <p> Student Employee Self Service Center: Total Rewards, Payroll & Tax, Benefits, Paycheck Modeler, Savings Tool & Employee Information.</p>
+                                <div class="tags">
+                                    <div class="tag">Payment</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="card-grid-space">
+                        <div class="num">G-one</div>
+                        <a class="card" href="one.html" target="_blank" style="--bg-img: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd9EK2u5Fe9NGcyQywxyzVU0rLbhAW-mt8w9dTbYItyDRVFPyzebtaE-dPCvFST4bH3ek&usqp=CAU)">
+                            <div>
+                              
+                                <p>Have something to buy or sell? Or need a roommate or tutor? Find all of this and more in the G-one. G-one is the place to go for current Students, Staff and Faculty.</p>
+                                 
+                                <div class="tags">
+                                    <div class="tag">Payment</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                   
+                    <div class="card-grid-space">
+                        <div class="num">Bookstore</div>
+                        <a class="card" href="https://germanna.edu/student-experience/academics-learning-support/bookstore" target="_blank" style="--bg-img: url(https://germanna.edu/sites/default/files/styles/header_background/public/2022-06/books%20in%20a%20boostore%20by%20jessica%20ruscello%20OQSCtabGkSY%20unsplash.jpg.webp?itok=LFlbA8QX)">
+                            <div>
+                              
+                                <p>The Bookstore section allows users to browse and purchase a wide range of books, offering both digital and physical options for learning and leisure.</p> 
+                                <div class="tags">
+                                    <div class="tag">Student Life</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    
+                    <div class="card-grid-space">
+                        <div class="num">My Grades</div>
+                        <a class="card" href="./GradeBook.html" target="_blank"
+                         style="--bg-img: url(https://www.apta.org/contentassets/d5244cf3c0d142c08359848a5f6c7856/800x300_grades.png)">
+                            <div>
+                                
+                               <p>Track your grades and progress across your courses to stay on top of your academic achievements.</p>
+           
+                                <div class="tags">
+                                    <div class="tag">Student Life</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                                       
+                    <div class="card-grid-space">
+                        <div class="num">Degrees</div>
+                        <a class="card" href="https://germanna.edu/degrees-programs" target="_blank" style="--bg-img: url(https://germanna.edu/sites/default/files/styles/header_background/public/2022-07/degrees-programs.jpg.webp?itok=Vjh7OAQ7)">
+                            <div>
+                                
+                                <p>The Degrees & Programs section provides detailed information about various academic degrees and programs offered, helping users explore educational opportunities and make informed decisions about their academic path.</p>
+                                 
+                                <div class="tags">
+                                    <div class="tag">Degrees & Programs</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="card-grid-space">
+                        <div class="num">Support</div>
+                        <a class="card" href="https://germanna.edu/about-germanna/contact-hours-locations/live-student-help" target="_blank" 
+                        style="--bg-img: url(https://germanna.edu/sites/default/files/styles/general_card/public/2022-04/academic-support.jpg.webp?itok=IfkxUlZO)">
+                            <div>
+                                
+                                <p>As a Germanna learner, you're not on your own. Our world-class academic support, tutoring, and libraries will help you succeed in the classroom.</p>
+                                <div class="tags">
+                                    <div class="tag">Student Life</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div class="card-grid-space">
+                        <div class="num">The Grizz</div>
+                        <a class="card" href="https://thegrizz.germanna.edu" target="_blank" 
+                        style="--bg-img: url(https://static-prod-us-east-1.campusgroups.com/upload/germanna/2023/image_upload_599697_image_upload_599698_grizzsplashjpg_8891447_81017358.png)">
+                         <div>
+                                
+                                <p>Get involved. Our students are active in a number of college clubs and organizations and many student activities and events are held throughout the year to get involved in.</p>
+                                <div class="tags">
+                                    <div class="tag">Student Life</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card-grid-space">
+                        <div class="num">Events</div>
+                        <a class="card" href="https://thegrizz.germanna.edu/events" target="_blank" style="--bg-img: url(https://germanna.edu/sites/default/files/styles/default/public/2024-12/grizz-hero.png.webp?itok=Guf4n64L)">
+                            <div>
+                                
+                                <p>Displays upcoming academic, social, and extracurricular events, allowing users to stay informed and participate in activities that align with their interests and schedules.</p>
+                                <div class="tags">
+                                    <div class="tag">Student Life</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="card-grid-space">
+                        <div class="num">FeedBack</div>
+                        <a class="card" href="Form.html" target="_blank" style="--bg-img: url(https://crosslandteam.com/wp-content/uploads/2013/02/feedback.png)">
+                            <div>
+                                
+                                <p>Help us improve by sharing your thoughts, suggestions, and any issues you've encountered.</p>
+            
+                                <div class="tags">
+                                    <div class="tag">Student Life</div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                  
+                    
+                
+                </section>
+
+
+            </div>
+
+            
+        </article>
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+function filterCards() {
+    const searchValue = document.getElementById("search-bar").value.toLowerCase();
+    const cards = document.querySelectorAll(".card-grid-space");  // Correct class selector
+
+    cards.forEach(card => {
+        const title = card.querySelector(".num").textContent.toLowerCase();  // Correct querySelector for title
+        const tags = card.querySelector(".tags").textContent.toLowerCase();  // Correct querySelector for tags
+
+        // Show or hide card based on search value match
+        if (title.includes(searchValue) || tags.includes(searchValue)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+
+    </script>
+
+<footer class="footer">
+    <p>&copy; <span id="year">2024</span> G-One.</p>
+</footer>
+</body>
+</html>
